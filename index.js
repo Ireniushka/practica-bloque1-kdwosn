@@ -3,6 +3,48 @@
 
 // Como se puede apreciar en la imagen, cada elemento que esté en una posición par de de la lista tiene que tener la clase "color-item--odd". Esta clase debe añadirse desde javascript, NO haciendo uso del selector css nth-of-type(odd) o similares. NOTA: En este caso vamos a considerar un elemento par pensando en el primer elemento como el 1 no como el 0.
 
+let list = document.getElementsByClassName("color-list")[0];
+
+function addElementsToList(lista){
+
+  for(let i= 0; i<colorList.length; i++){
+    let li = document.createElement("li");
+
+    if(i%2 ==1) li.classList.add("color-item--odd");
+
+    let div1 = document.createElement("div");
+    div1.classList.add("color-name");
+    div1.innerText= colorList[i].colorName;
+    div1.addEventListener("click", ()=>clickDiv(colorList[i].colorName, Event));
+    li.append(div1);
+
+    let div2 = document.createElement("div");
+    div2.classList.add("color-show");
+    div2.innerText="Muestra";
+    div2.style.backgroundColor = colorList[i].hex;
+    li.append(div2);
+
+    let button1 = document.createElement("button");
+    button1.classList.add("color-set");
+    button1.innerText = "Next Item Color";
+    button1.addEventListener("click", ()=> clickBtn1(colorList[i].hex, colorList[i].colorName, Event), false);
+    li.append(button1);
+
+    let button2 = document.createElement("button");
+    button2.classList.add("color-set");
+    button2.innerText = "Page Color";
+    button2.addEventListener("click", ()=> clickBtn2(colorList[i].hex, Event), false);
+    li.append(button2);
+
+    lista.append(li);
+  }
+
+  
+
+}
+
+addElementList(list);
+
 // Cada elemento del listado contendrá:
 //    * El nombre del color.
 //    * Una muestra en la que se ve el color.
