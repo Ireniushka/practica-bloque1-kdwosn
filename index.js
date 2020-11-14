@@ -113,7 +113,7 @@ function addElementsToList(lista){
       let child = listChildren.item(i);
       if(child.getElementsByTagName("div").item(0).textContent == "Color: "+ name){
         i == colorList.length? 
-          child=listChildren.item(0).style.backgroundColor = color:
+          child=listChildren.item(1).style.backgroundColor = color:
           child.nextSibling.style.backgroundColor = color;
       }
     }
